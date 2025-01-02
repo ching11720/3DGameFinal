@@ -30,3 +30,5 @@ Thumbs.db
 # Ignore custom debug files
 *.log
 
+Final_New/Library/
+
