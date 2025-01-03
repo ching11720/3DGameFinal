@@ -3,32 +3,33 @@ using TMPro;
 
 public class GameTimer : MonoBehaviour
 {
-    public float timeLimit = 60f; // Total time in seconds
+    // public float timeLimit = 60f; // Total time in seconds
     private float timeRemaining;
     public TextMeshProUGUI timerText; // Reference to the timer UI
-    public int requiredStars = 10; // Number of stars required to win
+    // public int requiredStars = 0; // Number of stars required to win
 
     private bool isGameOver = false;
 
     void Start()
     {
-        timeRemaining = timeLimit;
+        // timeRemaining = timeLimit;
+        timeRemaining = 0f;
         UpdateTimerUI();
     }
 
     void Update()
     {
-        if (isGameOver) return;
+        // if (isGameOver) return;
 
         // Countdown the timer
-        timeRemaining -= Time.deltaTime;
+        timeRemaining += Time.deltaTime;
 
         // Check if time has run out
-        if (timeRemaining <= 0)
-        {
-            timeRemaining = 0;
-            GameOver(false); // Time's up, game over
-        }
+        // if (timeRemaining <= 0)
+        // {
+        //     timeRemaining = 0;
+        //     GameOver(false); // Time's up, game over
+        // }
 
         UpdateTimerUI();
     }
@@ -43,27 +44,32 @@ public class GameTimer : MonoBehaviour
         }
     }
 
-    public void CheckWinCondition(int currentScore)
+    public float GetTime()
     {
-        if (currentScore >= requiredStars)
-        {
-            GameOver(true); // Player wins
-        }
+        return timeRemaining;
     }
 
-    void GameOver(bool hasWon)
-    {
-        isGameOver = true;
+    // public void CheckWinCondition(int currentScore)
+    // {
+    //     if (currentScore == requiredStars)
+    //     {
+    //         GameOver(true); // Player wins
+    //     }
+    // }
 
-        if (hasWon)
-        {
-            Debug.Log("You Win! Collected all stars.");
-            // Show a "You Win" screen or trigger the next level
-        }
-        else
-        {
-            Debug.Log("Game Over! Time ran out.");
-            // Show a "Game Over" screen or restart the game
-        }
-    }
+    // void GameOver(bool hasWon)
+    // {
+    //     isGameOver = true;
+
+    //     if (hasWon)
+    //     {
+    //         Debug.Log("You Win! Collected all stars.");
+    //         // Show a "You Win" screen or trigger the next level
+    //     }
+    //     else
+    //     {
+    //         Debug.Log("Game Over! Time ran out.");
+    //         // Show a "Game Over" screen or restart the game
+    //     }
+    // }
 }

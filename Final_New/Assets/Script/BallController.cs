@@ -11,14 +11,14 @@ public class BallController : MonoBehaviour
     public Transform plane; // Assign the plane object here
     public int score = 0; // Player's score
     public AudioSource starSound; // Reference to the AudioSource component
-    public GameTimer gameTimer; // Reference to the timer script
+    public GameManager gameManager; // Reference to the timer script
     
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        if (gameTimer == null)
+        if (gameManager == null)
         {
-            gameTimer = FindObjectOfType<GameTimer>();
+            gameManager = FindObjectOfType<GameManager>();
         }
         
     }
@@ -50,9 +50,9 @@ public class BallController : MonoBehaviour
             }
         }
 
-        if (gameTimer != null)
+        if (gameManager != null)
             {
-                gameTimer.CheckWinCondition(score);
+                gameManager.CheckWinCondition(score);
             }
     }
 }
