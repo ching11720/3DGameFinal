@@ -4,7 +4,7 @@ using UnityEngine;
 public class TextController : MonoBehaviour
 {
     public TextMeshProUGUI scoreText; // Reference to the UI text
-    private int score; // Player's score
+    private int score;                // Player's score
     public CollectManager collectManager;
 
     private void Start()
@@ -27,7 +27,7 @@ public class TextController : MonoBehaviour
 
         if (scoreText != null)
         {
-            scoreText.text = "Remaing Stars: " + score;
+            scoreText.text = "Remaining Stars: " + score;
         }
         else
         {

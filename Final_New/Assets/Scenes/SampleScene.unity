@@ -1263,9 +1263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48cda8929b1d04264a98ede254059b72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeLimit: 60
   timerText: {fileID: 425702060}
-  requiredStars: 10
 --- !u!1 &444864562
 GameObject:
   m_ObjectHideFlags: 0
@@ -1317,6 +1315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 444864565}
+  collectManager: {fileID: 0}
 --- !u!114 &444864565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2440,7 +2439,6 @@ GameObject:
   - component: {fileID: 1160936724}
   - component: {fileID: 1160936723}
   - component: {fileID: 1160936722}
-  - component: {fileID: 1160936721}
   - component: {fileID: 1160936720}
   - component: {fileID: 1160936727}
   - component: {fileID: 1160936726}
@@ -2472,27 +2470,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 10, y: 2.220446e-16, z: 10.683548}
   m_Center: {x: 0, y: 0, z: -0.34176493}
---- !u!135 &1160936721
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1160936719}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 1.1353962
-  m_Center: {x: 0, y: -3.8646038, z: 0}
 --- !u!114 &1160936722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2582,7 +2559,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1160936719}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: ad1a59c1f288e47a28d9dd434851847a, type: 2}
   m_CullingMode: 0
@@ -2607,7 +2584,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a517f84d61b9246029e9a252f7ca3fc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  elevatorAnimator: {fileID: 0}
+  moveSpeed: 3
+  minHeight: 0
+  maxHeight: 5
+  elevatorTransform: {fileID: 1160936725}
 --- !u!1001 &1173419078
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2789,7 +2769,7 @@ MonoBehaviour:
   plane: {fileID: 125135393}
   score: 0
   starSound: {fileID: 2137353950}
-  gameTimer: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!135 &1277638300
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3101,7 +3081,6 @@ GameObject:
   - component: {fileID: 1599567896}
   - component: {fileID: 1599567895}
   - component: {fileID: 1599567894}
-  - component: {fileID: 1599567893}
   - component: {fileID: 1599567892}
   m_Layer: 0
   m_Name: Floor4
@@ -3129,29 +3108,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 10, y: 2.220446e-16, z: 10.683548}
-  m_Center: {x: 0, y: 0, z: -0.34176493}
---- !u!135 &1599567893
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1599567891}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 1.1353962
-  m_Center: {x: 0, y: -3.8646038, z: 0}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1599567894
 MonoBehaviour:
   m_ObjectHideFlags: 0
