@@ -9,7 +9,7 @@ public class BallController : MonoBehaviour
    
     private Rigidbody rb;
     public Transform plane; // Assign the plane object here
-    public int score = 0; // Player's score
+    // public int score = 0; // Player's score
     public AudioSource starSound; // Reference to the AudioSource component
     public GameManager gameManager; // Reference to the timer script
     
@@ -32,6 +32,11 @@ public class BallController : MonoBehaviour
         float sensitivityMultiplier = 2.0f; // Amplify slope sensitivity
         rb.AddForce(slopeForce * sensitivityMultiplier, ForceMode.Acceleration);
 
+        if (this.transform.position.y < -60)
+        {
+            gameManager.FallDown();
+        }
+
         Debug.Log("Applied Force: " + slopeForce * sensitivityMultiplier);
     }
   void OnTriggerEnter(Collider other)
@@ -50,10 +55,10 @@ public class BallController : MonoBehaviour
             }
         }
 
-        if (gameManager != null)
-            {
-                gameManager.CheckWinCondition(score);
-            }
+        // if (gameManager != null)
+        //     {
+        //         gameManager.CheckWinCondition(score);
+        //     }
     }
 }
 

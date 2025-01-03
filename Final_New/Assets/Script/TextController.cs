@@ -11,6 +11,7 @@ public class TextController : MonoBehaviour
     {
         collectManager = FindObjectOfType<CollectManager>();
         score = collectManager.GetStarCount();
+        // Debug.Log("Current Star Count: " + score);
         if (scoreText != null)
         {
             scoreText.text = "Remaing Stars: " + score;
